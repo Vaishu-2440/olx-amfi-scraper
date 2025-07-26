@@ -13,13 +13,18 @@ class Result {
      *
      * The function is expected to return a STRING.
      * The function accepts STRING encryptedMessage as parameter.
+     * 
+     * Logic:
+     * 1. First the words in the sentence are reversed
+     * 2. For each word, adjacent repeated letters are compressed in format <character><frequency>
+     * 3. Return the decrypted string
      */
 
     public static String decryptMessage(String encryptedMessage) {
         // Split the encrypted message into words
         String[] words = encryptedMessage.split(" ");
         
-        // Process each word: decompress repeated letters and reverse word order
+        // Process each word: decompress repeated letters
         List<String> decryptedWords = new ArrayList<>();
         
         for (String word : words) {
